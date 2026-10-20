@@ -20,7 +20,11 @@ if birthdate.month > current_month or (birthdate.month == current_month and birt
 candles = age % 10 
 
 print()
-print(" " + "| " * candles)
-print("  _______________")
-print(" |  HAPPY BIRTHDAY |")
-print(" |_________________|")
+print("        " + "| " * candles)
+print("    _____________")
+print("    |:H:a:p:p:y:|")
+print("  __|___________|__")
+print(" |^^^^^^^^^^^^^^^^^|")
+print(" |:B:i:r:t:h:d:a:y:|")
+print(" |                 |")
+print(" ~~~~~~~~~~~~~~~~~~~")
