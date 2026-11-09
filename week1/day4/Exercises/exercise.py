@@ -210,12 +210,12 @@ def ask_questions():
 
 
 def display_results(correct, incorrect, wrong_answers):
-    print("\n--- Quiz Results ---")
+    print("\n Quiz Results ")
     print("Correct answers:", correct)
     print("Incorrect answers:", incorrect)
 
     if wrong_answers:
-        print("\n--- Questions answered incorrectly ---")
+        print("\nQuestions answered incorrectly")
 
         for item in wrong_answers:
             print("\nQuestion:", item["question"])
