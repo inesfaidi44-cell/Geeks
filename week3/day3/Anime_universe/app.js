@@ -1,6 +1,5 @@
 
 // 1. SELECT HTML ELEMENTS
-// ========================================
 
 const cardsGrid = document.getElementById("cards-grid");
 const emptyState = document.getElementById("empty-state");
@@ -15,16 +14,12 @@ const closeModal = document.getElementById("close-modal");
 const modalContent = document.getElementById("modal-content");
 
 
-// ========================================
 // 2. DISPLAY CHARACTERS
-// ========================================
 
 function displayCharacters(characters) {
 
-    // Clear the previous cards
     cardsGrid.innerHTML = "";
 
-    // Check if there are no characters
     if (characters.length === 0) {
         emptyState.classList.remove("hidden");
         return;
@@ -32,7 +27,6 @@ function displayCharacters(characters) {
 
     emptyState.classList.add("hidden");
 
-    // Create a card for each character
     characters.forEach(character => {
 
         const card = document.createElement("article");
@@ -73,23 +67,18 @@ function displayCharacters(characters) {
 }
 
 
-// ========================================
 // 3. SEARCH, FILTER AND SORT
-// ========================================
 
 function applyFilters() {
 
-    // Start with all characters
     let filteredCharacters = [...catalogItems];
 
-    // Get values from the HTML controls
     const searchTerm = searchInput.value.toLowerCase().trim();
     const selectedCategory = categoryFilter.value;
     const selectedAnime = animeFilter.value;
     const sortOption = sortSelect.value;
 
 
-    // SEARCH BY NAME, ANIME OR DESCRIPTION
 
     if (searchTerm !== "") {
 
@@ -125,14 +114,12 @@ function applyFilters() {
 
     if (sortOption === "az") {
 
-        // Alphabetical order: A to Z
         filteredCharacters.sort((a, b) =>
             a.name.localeCompare(b.name)
         );
 
     } else if (sortOption === "za") {
 
-        // Reverse alphabetical order: Z to A
         filteredCharacters.sort((a, b) =>
             b.name.localeCompare(a.name)
         );
@@ -146,31 +133,23 @@ function applyFilters() {
     }
 
 
-    // Display the filtered and sorted characters
     displayCharacters(filteredCharacters);
 }
 
 
-// ========================================
 // 4. EVENT LISTENERS FOR SEARCH AND FILTERS
-// ========================================
 
-// Search when the user types
 searchInput.addEventListener("input", applyFilters);
 
-// Filter when the category changes
 categoryFilter.addEventListener("change", applyFilters);
 
-// Filter when the anime changes
 animeFilter.addEventListener("change", applyFilters);
 
 // Sort when the sorting option changes
 sortSelect.addEventListener("change", applyFilters);
 
 
-// ========================================
 // 5. OPEN CHARACTER DETAILS MODAL
-// ========================================
 
 cardsGrid.addEventListener("click", function(event) {
 
@@ -213,14 +192,11 @@ cardsGrid.addEventListener("click", function(event) {
         <p>${character.fullDetails}</p>
     `;
 
-    // Open the modal
     characterModal.showModal();
 });
 
 
-// ========================================
 // 6. CLOSE THE MODAL
-// ========================================
 
 // Close when clicking the close button
 closeModal.addEventListener("click", function() {
@@ -235,11 +211,6 @@ characterModal.addEventListener("click", function(event) {
     }
 
 });
-
-
-// ========================================
-// 7. INITIAL DISPLAY
-// ========================================
 
 // Display all characters when the page loads
 applyFilters();
